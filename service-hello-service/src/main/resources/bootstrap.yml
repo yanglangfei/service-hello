@@ -1,0 +1,38 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: service-custom
+  cloud:
+    config:
+      fail-fast: true
+      uri: http://192.168.1.140:9999
+      profile: ylf
+    stream:
+      bindings:
+        output_userRegister:
+          destination: userRegister
+          content-type: application/json
+        output_userLogin:
+          destination: userLogin
+          content-type: application/json
+  mvc:
+    throw-exception-if-no-handler-found: true
+eureka:
+  instance:
+    refer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    hostname: ${spring.cloud.client.ipAddress}
+management:
+  security:
+    enabled: false
+mybatis:
+  configuration:
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+    cache-enabled: false
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

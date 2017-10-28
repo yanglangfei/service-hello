@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.ylf</groupId>
+	<artifactId>service-hello</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<modules>
+		<module>service-hello-service</module>
+		<module>service-hello-client</module>
+		<module>service-hello-event</module>
+		<module>service-hello-model</module>
+	</modules>
+	  <packaging>pom</packaging>
+
+	<name>service-hello</name>
+	<description>service-hello</description>
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Dalston.SR4</spring-cloud.version>
+	</properties>
+
+	<dependencies>
+		<!--lib-->
+		<dependency>
+			<groupId>com.naju</groupId>
+			<artifactId>lib-common</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.naju</groupId>
+			<artifactId>lib-mybatis</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<!--eureka-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+
+		<!--lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.18</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>release</name>
+			<url>http://nexus:9999/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>snapshot</name>
+			<url>http://nexus:9999/repository/maven-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+
+</project>
