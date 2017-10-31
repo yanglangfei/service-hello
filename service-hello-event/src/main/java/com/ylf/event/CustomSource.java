@@ -4,9 +4,9 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 
 /**
+ * @author Administrator
  *
- * @author QianJH
- * @date 2017/10/23
+ * 发布消息的接口   主要用来绑定管道发布消息
  */
 public interface CustomSource {
     String REGISTER = "output_userRegister";
